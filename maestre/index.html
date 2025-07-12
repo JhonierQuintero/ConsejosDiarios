@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Dinámico - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Partículas de fondo animadas -->
+    <div class="particulas-fondo"></div>
+    
+    <!-- Contenedor principal -->
+    <div class="contenedor-principal" id="contenedorPrincipal">
+        <!-- Pantalla de inicio -->
+        <section class="pantalla-inicio" id="pantallaInicio">
+            <div class="contenido-inicio">
+                <div class="logo-titulo">
+                    <i class="fas fa-rocket icono-logo"></i>
+                    <h1 class="titulo-principal">Explora la Sabiduría</h1>
+                    <p class="subtitulo">Sumérgete en un mundo de preguntas desafiantes, curiosidades y secretos del conocimiento.</p>
+                </div>
+                
+                <div class="descripcion-portal">
+                    <p>Descubre un mundo de preguntas con nuestra sabiduria. 
+                    Accede a contenido exclusivo, juegos dinamicos y mucho más.</p>
+                </div>
+                
+                <div class="botones-inicio">
+                    <button class="boton-iniciar-sesion" id="botonIniciarSesion">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Iniciar Sesión
+                    </button>
+                    <button class="boton-registrarse" id="botonRegistrarse">
+                        <i class="fas fa-user-plus"></i>
+                        Crear Cuenta
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de formularios de autenticación -->
+        <section class="seccion-autenticacion oculto" id="seccionAutenticacion">
+            <div class="contenido-autenticacion">
+                <div class="encabezado-auth">
+                    <button class="boton-regresar" id="botonRegresarAuth">
+                        <i class="fas fa-arrow-left"></i>
+                        Regresar
+                    </button>
+                </div>
+                
+                <div class="logo-titulo-auth">
+                    <i class="fas fa-rocket icono-logo"></i>
+                    <h2 class="titulo-auth">Acceder al Portal</h2>
+                </div>
+                
+                <!-- Formulario de inicio de sesión -->
+                <div class="contenedor-formulario" id="contenedorFormulario">
+                    <div class="pestañas-formulario">
+                        <button class="pestaña activa" data-modo="iniciar-sesion">Iniciar Sesión</button>
+                        <button class="pestaña" data-modo="registrarse">Registrarse</button>
+                    </div>
+                    
+                    <!-- Formulario de inicio de sesión -->
+                    <form class="formulario activo" id="formularioIniciarSesion">
+                        <div class="grupo-input">
+                            <i class="fas fa-user icono-input"></i>
+                            <input type="text" id="usuarioLogin" placeholder="Usuario" required>
+                        </div>
+                        <div class="grupo-input">
+                            <i class="fas fa-lock icono-input"></i>
+                            <input type="password" id="contraseñaLogin" placeholder="Contraseña" required>
+                        </div>
+                        <button type="submit" class="boton-formulario">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Entrar
+                        </button>
+                    </form>
+                    
+                    <!-- Formulario de registro -->
+                    <form class="formulario" id="formularioRegistro">
+                        <div class="grupo-input">
+                            <i class="fas fa-user icono-input"></i>
+                            <input type="text" id="usuarioRegistro" placeholder="Usuario" required>
+                        </div>
+                        <div class="grupo-input">
+                            <i class="fas fa-envelope icono-input"></i>
+                            <input type="email" id="emailRegistro" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="grupo-input">
+                            <i class="fas fa-lock icono-input"></i>
+                            <input type="password" id="contraseñaRegistro" placeholder="Contraseña" required>
+                        </div>
+                        <div class="grupo-input">
+                            <i class="fas fa-lock icono-input"></i>
+                            <input type="password" id="confirmarContraseña" placeholder="Confirmar contraseña" required>
+                        </div>
+                        <button type="submit" class="boton-formulario">
+                            <i class="fas fa-user-plus"></i>
+                            Registrarse
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de bienvenida (después del login) -->
+        <section class="seccion-bienvenida oculto" id="seccionBienvenida">
+            <div class="contenido-bienvenida">
+                <div class="encabezado-sesion">
+                    <button class="boton-cerrar-sesion" id="botonCerrarSesion">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Cerrar Sesión
+                    </button>
+                </div>
+                
+                <!-- Mensaje de bienvenida -->
+                <div class="mensaje-bienvenida" id="mensajeBienvenida">
+                    <h2>¡Bienvenido de vuelta!</h2>
+                    <p>¿Estás listo para comenzar tus preguntas?</p>
+                </div>
+                
+                <!-- Botón comenzar -->
+                <button class="boton-comenzar" id="botonComenzar">
+                    <i class="fas fa-play"></i>
+                    Comenzar Aventura
+                </button>
+            </div>
+        </section>
+        
+        <!-- Sección de opciones (oculta inicialmente) -->
+        <section class="seccion-opciones oculto" id="seccionOpciones">
+            <div class="contenedor-cards">
+                <h2 class="titulo-opciones">Elige tu camino</h2>
+                
+                <!-- Card de navegación -->
+                <div class="card card-navegacion" id="cardNavegacion">
+                    <div class="icono-card">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Explora nuestro Contenido</h3>
+                    <p>Descubre nuestro contenido principal y navega por las diferentes secciones de la plataforma.</p>
+                    <button class="boton-card" onclick="irAPagina()">
+                        <i class="fas fa-arrow-right"></i>
+                        Ir a la Página
+                    </button>
+                </div>
+                
+                <!-- Card del juego -->
+                <div class="card card-juego" id="cardJuego">
+                    <div class="icono-card">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Zona de Juegos</h3>
+                    <p>Accede a nuestra sección de entretenimiento interactivo y disfruta de experiencias nuevas.</p>
+                    <button class="boton-card" onclick="irAJuego()">
+                        <i class="fas fa-play-circle"></i>
+                        Jugar Ahora
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Botón de regreso -->
+            <button class="boton-regreso" id="botonRegreso">
+                <i class="fas fa-arrow-left"></i>
+                Regresar
+            </button>
+        </section>
+    </div>
+    
+    <!-- Modal de confirmación para cerrar sesión -->
+    <div class="modal-overlay oculto" id="modalCerrarSesion">
+        <div class="modal-contenido">
+            <div class="modal-icono">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h3 class="modal-titulo">¿Cerrar Sesión?</h3>
+            <p class="modal-mensaje">¿Estás seguro de que quieres cerrar tu sesión actual?</p>
+            <div class="modal-botones">
+                <button class="boton-cancelar" id="botonCancelarCierre">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+                <button class="boton-confirmar" id="botonConfirmarCierre">
+                    <i class="fas fa-check"></i>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificaciones -->
+    <div class="contenedor-notificaciones" id="contenedorNotificaciones"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
