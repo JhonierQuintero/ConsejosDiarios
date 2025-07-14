@@ -4,7 +4,7 @@ function irAPaginaAbundancia() {
     mostrarAnimacionCarga();
     setTimeout(() => {
         // Ruta relativa desde maestre/index.html a pagina-ser--main/pagina-ser--main/index.html
-        window.location.href = '../PaginaPrincipal/index.html';
+        window.location.href = './PaginaPrincipal/index.html';
     }, 1000);
 }
 function irAJuegoTangram() {
@@ -12,7 +12,7 @@ function irAJuegoTangram() {
     mostrarAnimacionCarga();
     setTimeout(() => {
         // Ruta relativa desde maestre/index.html a SER/SER/index2.html
-        window.location.href = '../juego/SER/index (1).html';
+        window.location.href = './juego/SER/index (1).html';
     }, 1000);
 }
 
