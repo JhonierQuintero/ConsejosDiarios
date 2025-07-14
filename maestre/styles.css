@@ -1,15 +1,28 @@
 /* Variables CSS para colores y espaciado */
 :root {
-    --color-primario: #6366f1;
-    --color-secundario: #8b5cf6;
-    --color-acento: #ec4899;
-    --gradiente-principal: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-    --gradiente-suave: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%);
-    --sombra-principal: 0 20px 40px rgba(99, 102, 241, 0.3);
-    --sombra-suave: 0 8px 25px rgba(0, 0, 0, 0.1);
+    /* Colores base inspirados en el gradiente del juego y la página de abundancia */
+    --color-primario: #3216ad; /* Azul oscuro vibrante (similar al inicio del gradiente secundario de pagina) */
+    --color-secundario: #e602ee; /* Púrpura vibrante (similar al final del gradiente secundario de pagina) */
+    --color-acento: #ec4899; /* Rosa (mantener para acento, ya presente) */
+
+    /* Gradientes actualizados para reflejar el nuevo tema */
+    --gradiente-principal: linear-gradient(135deg, var(--color-primario) 0%, var(--color-secundario) 100%);
+    --gradiente-suave: linear-gradient(135deg, rgba(50, 22, 173, 0.1) 0%, rgba(230, 2, 238, 0.1) 100%); /* Ajustado a los nuevos colores */
+
+    /* Sombras más profundas y coherentes */
+    --sombra-principal: 0 20px 40px rgba(50, 22, 173, 0.4); /* Sombra más intensa con el color primario */
+    --sombra-suave: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra más oscura para contraste */
+
     --radio-borde: 20px;
     --transicion-rapida: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transicion-lenta: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Nuevos colores para texto y elementos de fondo para mejor contraste */
+    --color-texto-claro: rgba(255, 255, 255, 0.9); /* Texto principal claro */
+    --color-texto-medio: rgba(255, 255, 255, 0.7); /* Subtítulos y descripciones */
+    --color-texto-oscuro: #f3f4f6; /* Para elementos que necesitan ser muy claros sobre fondos oscuros */
+    --color-fondo-transparente: rgba(255, 255, 255, 0.08); /* Fondo de elementos transparentes */
+    --color-borde-transparente: rgba(255, 255, 255, 0.15); /* Borde de elementos transparentes */
 }
 
 /* Reset y estilos base */
@@ -22,9 +35,11 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
+    /* Usar el nuevo gradiente principal */
     background: var(--gradiente-principal);
     overflow-x: hidden;
     position: relative;
+    color: var(--color-texto-claro); /* Color de texto por defecto */
 }
 
 /* Partículas de fondo animadas */
@@ -45,7 +60,8 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    /* Ajustar el color de las partículas para que sean más sutiles en el nuevo fondo */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
     animation: flotarParticulas 20s infinite linear;
 }
 
@@ -62,9 +78,9 @@ body {
 }
 
 @keyframes flotarParticulas {
-    0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-    50% { transform: translateY(-100px) rotate(180deg); opacity: 0.3; }
-    100% { transform: translateY(0px) rotate(360deg); opacity: 0.7; }
+    0% { transform: translateY(0px) rotate(0deg); opacity: 0.6; } /* Ajustar opacidad */
+    50% { transform: translateY(-100px) rotate(180deg); opacity: 0.2; } /* Ajustar opacidad */
+    100% { transform: translateY(0px) rotate(360deg); opacity: 0.6; } /* Ajustar opacidad */
 }
 
 /* Contenedor principal */
@@ -87,12 +103,13 @@ body {
 }
 
 .contenido-inicio {
-    background: rgba(255, 255, 255, 0.1);
+    /* Usar los nuevos colores transparentes */
+    background: var(--color-fondo-transparente);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-borde-transparente);
     border-radius: var(--radio-borde);
-    padding: 60px 50px;
     box-shadow: var(--sombra-principal);
+    padding: 60px 50px;
 }
 
 .descripcion-portal {
@@ -100,7 +117,7 @@ body {
 }
 
 .descripcion-portal p {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-texto-medio); /* Usar nuevo color de texto medio */
     font-size: 1.3rem;
     line-height: 1.7;
     max-width: 650px;
@@ -121,7 +138,7 @@ body {
     padding: 22px 30px;
     border: none;
     border-radius: 18px;
-    color: white;
+    color: var(--color-texto-oscuro); /* Texto muy claro para botones */
     font-size: 1.4rem;
     font-weight: 600;
     cursor: pointer;
@@ -135,16 +152,17 @@ body {
 }
 
 .boton-iniciar-sesion {
-    background: var(--gradiente-principal);
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    background: var(--gradiente-principal); /* Usar el nuevo gradiente principal */
+    box-shadow: 0 10px 30px rgba(50, 22, 173, 0.4); /* Sombra ajustada */
 }
 
 .boton-iniciar-sesion:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.5);
+    box-shadow: 0 20px 40px rgba(50, 22, 173, 0.5); /* Sombra ajustada */
 }
 
 .boton-registrarse {
+    /* Mantener un gradiente verde para contraste, pero ajustado a la intensidad */
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
 }
@@ -163,12 +181,13 @@ body {
 }
 
 .contenido-autenticacion {
-    background: rgba(255, 255, 255, 0.1);
+    /* Usar los nuevos colores transparentes */
+    background: var(--color-fondo-transparente);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-borde-transparente);
     border-radius: var(--radio-borde);
-    padding: 40px 30px;
     box-shadow: var(--sombra-principal);
+    padding: 40px 30px;
     position: relative;
 }
 
@@ -179,11 +198,12 @@ body {
 }
 
 .boton-regresar {
+    /* Ajustar colores para el nuevo tema */
     padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 10px;
-    color: white;
+    color: var(--color-texto-claro);
     cursor: pointer;
     transition: var(--transicion-rapida);
     display: flex;
@@ -193,7 +213,7 @@ body {
 }
 
 .boton-regresar:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }
 
@@ -203,7 +223,7 @@ body {
 }
 
 .titulo-auth {
-    color: white;
+    color: var(--color-texto-claro); /* Usar nuevo color de texto claro */
     font-size: 1.8rem;
     font-weight: 600;
     margin-top: 10px;
@@ -218,12 +238,13 @@ body {
 }
 
 .contenido-bienvenida {
-    background: rgba(255, 255, 255, 0.1);
+    /* Usar los nuevos colores transparentes */
+    background: var(--color-fondo-transparente);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-borde-transparente);
     border-radius: var(--radio-borde);
-    padding: 60px 50px;
     box-shadow: var(--sombra-principal);
+    padding: 60px 50px;
     position: relative;
 }
 
@@ -234,11 +255,12 @@ body {
 }
 
 .boton-cerrar-sesion {
+    /* Ajustar colores para el nuevo tema */
     padding: 10px 15px;
-    background: rgba(220, 38, 127, 0.2);
-    border: 1px solid rgba(220, 38, 127, 0.4);
+    background: rgba(236, 72, 153, 0.2); /* Usar color acento con transparencia */
+    border: 1px solid rgba(236, 72, 153, 0.4);
     border-radius: 10px;
-    color: #f472b6;
+    color: var(--color-acento); /* Color acento para el texto */
     cursor: pointer;
     transition: var(--transicion-rapida);
     display: flex;
@@ -249,9 +271,9 @@ body {
 }
 
 .boton-cerrar-sesion:hover {
-    background: rgba(220, 38, 127, 0.3);
+    background: rgba(236, 72, 153, 0.3);
     transform: translateY(-2px);
-    color: white;
+    color: var(--color-texto-claro); /* Texto claro en hover */
 }
 
 /* Logo y título */
@@ -261,7 +283,7 @@ body {
 
 .icono-logo {
     font-size: 3rem;
-    color: white;
+    color: var(--color-texto-claro); /* Usar nuevo color de texto claro */
     margin-bottom: 15px;
     animation: pulsarIcono 2s infinite;
 }
@@ -274,14 +296,14 @@ body {
 .titulo-principal {
     font-size: 2.5rem;
     font-weight: 700;
-    color: white;
+    color: var(--color-texto-claro); /* Usar nuevo color de texto claro */
     margin-bottom: 8px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Sombra más oscura */
 }
 
 .subtitulo {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-texto-medio); /* Usar nuevo color de texto medio */
     font-weight: 300;
 }
 
@@ -293,6 +315,7 @@ body {
 .pestañas-formulario {
     display: flex;
     margin-bottom: 20px;
+    /* Ajustar colores para el nuevo tema */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 4px;
@@ -303,7 +326,7 @@ body {
     padding: 12px 20px;
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.6); /* Texto más sutil */
     font-weight: 500;
     border-radius: 8px;
     cursor: pointer;
@@ -313,13 +336,13 @@ body {
 
 .pestaña.activa {
     background: rgba(255, 255, 255, 0.2);
-    color: white;
+    color: var(--color-texto-claro); /* Texto claro cuando activo */
     transform: translateY(-2px);
 }
 
 .pestaña:hover:not(.activa) {
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-texto-claro);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .formulario {
@@ -341,7 +364,7 @@ body {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5); /* Iconos más sutiles */
     font-size: 1.1rem;
     z-index: 1;
 }
@@ -349,22 +372,23 @@ body {
 .grupo-input input {
     width: 100%;
     padding: 15px 15px 15px 45px;
+    /* Ajustar colores para el nuevo tema */
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-    color: white;
+    color: var(--color-texto-claro); /* Texto claro en inputs */
     font-size: 1rem;
     transition: var(--transicion-rapida);
     backdrop-filter: blur(10px);
 }
 
 .grupo-input input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.4); /* Placeholder más sutil */
 }
 
 .grupo-input input:focus {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
@@ -373,15 +397,15 @@ body {
 .boton-formulario {
     width: 100%;
     padding: 15px;
-    background: var(--gradiente-principal);
+    background: var(--gradiente-principal); /* Usar el nuevo gradiente principal */
     border: none;
     border-radius: 12px;
-    color: white;
+    color: var(--color-texto-oscuro); /* Texto muy claro */
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transicion-rapida);
-    box-shadow: var(--sombra-suave);
+    box-shadow: var(--sombra-suave); /* Usar sombra suave */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -390,7 +414,7 @@ body {
 
 .boton-formulario:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 35px rgba(50, 22, 173, 0.4); /* Sombra ajustada */
 }
 
 .boton-formulario:active {
@@ -405,15 +429,15 @@ body {
 }
 
 .mensaje-bienvenida h2 {
-    color: white;
+    color: var(--color-texto-claro); /* Usar nuevo color de texto claro */
     font-size: 2.5rem;
     margin-bottom: 15px;
     font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Sombra más oscura */
 }
 
 .mensaje-bienvenida p {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-texto-medio); /* Usar nuevo color de texto medio */
     font-size: 1.3rem;
     line-height: 1.6;
     max-width: 500px;
@@ -426,10 +450,11 @@ body {
     max-width: 400px;
     margin: 0 auto;
     padding: 25px;
+    /* Mantener gradiente verde para contraste */
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     border: none;
     border-radius: 18px;
-    color: white;
+    color: var(--color-texto-oscuro); /* Texto muy claro */
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
@@ -457,11 +482,11 @@ body {
 }
 
 .titulo-opciones {
-    color: white;
+    color: var(--color-texto-claro); /* Usar nuevo color de texto claro */
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Sombra más oscura */
 }
 
 .contenedor-cards {
@@ -473,14 +498,15 @@ body {
 
 /* Cards */
 .card {
-    background: rgba(255, 255, 255, 0.1);
+    /* Usar los nuevos colores transparentes */
+    background: var(--color-fondo-transparente);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-borde-transparente);
     border-radius: var(--radio-borde);
     padding: 40px 30px;
     text-align: center;
     transition: var(--transicion-rapida);
-    box-shadow: var(--sombra-suave);
+    box-shadow: var(--sombra-suave); /* Usar sombra suave */
     position: relative;
     overflow: hidden;
 }
@@ -502,34 +528,34 @@ body {
 
 .card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 50px rgba(50, 22, 173, 0.3); /* Sombra ajustada */
+    border-color: rgba(255, 255, 255, 0.25); /* Borde más claro en hover */
 }
 
 .icono-card {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    color: white;
+    color: var(--color-texto-claro); /* Usar nuevo color de texto claro */
     animation: pulsarIcono 3s infinite;
 }
 
 .card-navegacion .icono-card {
-    color: #60a5fa;
+    color: #60a5fa; /* Mantener azul claro para este icono */
 }
 
 .card-juego .icono-card {
-    color: #fb7185;
+    color: #fb7185; /* Mantener rosa para este icono */
 }
 
 .card h3 {
-    color: white;
+    color: var(--color-texto-claro); /* Usar nuevo color de texto claro */
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 15px;
 }
 
 .card p {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-texto-medio); /* Usar nuevo color de texto medio */
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 25px;
@@ -538,10 +564,10 @@ body {
 .boton-card {
     width: 100%;
     padding: 15px;
-    background: var(--gradiente-principal);
+    background: var(--gradiente-principal); /* Usar el nuevo gradiente principal */
     border: none;
     border-radius: 12px;
-    color: white;
+    color: var(--color-texto-oscuro); /* Texto muy claro */
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -554,16 +580,17 @@ body {
 
 .boton-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 35px rgba(50, 22, 173, 0.4); /* Sombra ajustada */
 }
 
 /* Botón de regreso */
 .boton-regreso {
     padding: 15px 30px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Ajustar colores para el nuevo tema */
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 12px;
-    color: white;
+    color: var(--color-texto-claro);
     font-size: 1.1rem;
     font-weight: 500;
     cursor: pointer;
@@ -575,7 +602,7 @@ body {
 }
 
 .boton-regreso:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }
 
@@ -589,8 +616,9 @@ body {
 }
 
 .notificacion {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    /* Ajustar colores para el nuevo tema */
+    background: rgba(255, 255, 255, 0.9); /* Fondo casi blanco para notificaciones */
+    backdrop-filter: blur(15px);
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 10px;
@@ -600,6 +628,7 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+    color: #1f2937; /* Texto oscuro para notificaciones */
 }
 
 .notificacion.exito {
@@ -624,8 +653,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para el overlay */
+    backdrop-filter: blur(10px); /* Blur un poco más fuerte */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -640,20 +669,21 @@ body {
     }
     to {
         opacity: 1;
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(10px);
     }
 }
 
 .modal-contenido {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(25px);
+    /* Ajustar colores para el nuevo tema */
+    background: rgba(255, 255, 255, 0.95); /* Fondo casi blanco para el modal */
+    backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
     max-width: 450px;
     width: 90%;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1); /* Sombra más intensa */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
     animation: deslizarModal 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
@@ -672,6 +702,7 @@ body {
 .modal-icono {
     width: 80px;
     height: 80px;
+    /* Mantener gradiente rojo para el icono de cerrar sesión */
     background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     border-radius: 50%;
     display: flex;
@@ -687,14 +718,14 @@ body {
 }
 
 .modal-titulo {
-    color: #1f2937;
+    color: #1f2937; /* Texto oscuro */
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 15px;
 }
 
 .modal-mensaje {
-    color: #6b7280;
+    color: #6b7280; /* Texto gris oscuro */
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 30px;
@@ -724,18 +755,19 @@ body {
 }
 
 .boton-cancelar {
-    background: #f3f4f6;
-    color: #6b7280;
-    border: 1px solid #e5e7eb;
+    background: #e5e7eb; /* Gris claro */
+    color: #4b5563; /* Gris oscuro */
+    border: 1px solid #d1d5db;
 }
 
 .boton-cancelar:hover {
-    background: #e5e7eb;
-    color: #374151;
+    background: #d1d5db;
+    color: #1f2937;
     transform: translateY(-2px);
 }
 
 .boton-confirmar {
+    /* Mantener gradiente rojo para el botón de confirmar */
     background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     color: white;
     box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
@@ -756,6 +788,7 @@ body {
 }
 
 /* Animaciones */
+/* Las animaciones existentes se mantienen, ya que son de transición y no de color */
 @keyframes aparecerDesdeAbajo {
     from {
         opacity: 0;
@@ -801,75 +834,76 @@ body {
 }
 
 /* Responsive Design */
+/* Los media queries se mantienen igual, ya que afectan el layout, no los colores */
 @media (max-width: 768px) {
     .pantalla-inicio {
         max-width: 600px;
     }
-    
+
     .contenido-inicio {
         padding: 50px 30px;
     }
-    
+
     .seccion-bienvenida {
         max-width: 600px;
     }
-    
+
     .contenido-autenticacion,
     .contenido-bienvenida {
         padding: 40px 25px;
     }
-    
+
     .mensaje-bienvenida h2 {
         font-size: 2.2rem;
     }
-    
+
     .mensaje-bienvenida p {
         font-size: 1.2rem;
     }
-    
+
     .titulo-principal {
         font-size: 2rem;
     }
-    
+
     .subtitulo {
         font-size: 1rem;
     }
-    
+
     .descripcion-portal p {
         font-size: 1.1rem;
     }
-    
+
     .botones-inicio {
         max-width: 100%;
     }
-    
+
     .boton-iniciar-sesion,
     .boton-registrarse {
         font-size: 1.1rem;
         padding: 16px 20px;
     }
-    
+
     .titulo-opciones {
         font-size: 2rem;
     }
-    
+
     .contenedor-cards {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .card {
         padding: 30px 20px;
     }
-    
+
     .icono-card {
         font-size: 3rem;
     }
-    
+
     .card h3 {
         font-size: 1.5rem;
     }
-    
+
     .card p {
         font-size: 1rem;
     }
@@ -879,69 +913,69 @@ body {
     .contenedor-principal {
         padding: 15px;
     }
-    
+
     .pantalla-inicio {
         max-width: 100%;
     }
-    
+
     .contenido-inicio {
         padding: 40px 25px;
     }
-    
+
     .seccion-bienvenida {
         max-width: 100%;
     }
-    
+
     .contenido-autenticacion,
     .contenido-bienvenida {
         padding: 35px 20px;
     }
-    
+
     .mensaje-bienvenida h2 {
         font-size: 2rem;
     }
-    
+
     .mensaje-bienvenida p {
         font-size: 1.1rem;
     }
-    
+
     .titulo-principal {
         font-size: 1.8rem;
     }
-    
+
     .descripcion-portal p {
         font-size: 1rem;
     }
-    
+
     .botones-inicio {
         gap: 15px;
     }
-    
+
     .boton-iniciar-sesion,
     .boton-registrarse {
         font-size: 1rem;
         padding: 14px 18px;
     }
-    
+
     .pestañas-formulario {
         flex-direction: column;
         gap: 5px;
     }
-    
+
     .pestaña {
         padding: 10px;
     }
-    
+
     .grupo-input input {
         padding: 12px 12px 12px 40px;
     }
-    
+
     .boton-formulario,
     .boton-comenzar {
         padding: 14px;
         font-size: 1rem;
     }
-    
+
     .encabezado-auth,
     .encabezado-sesion {
         position: relative;
@@ -951,15 +985,15 @@ body {
         margin-bottom: 20px;
         text-align: left;
     }
-    
+
     .contenedor-cards {
         gap: 15px;
     }
-    
+
     .card {
         padding: 25px 15px;
     }
-    
+
     .notificacion {
         margin: 0 10px 10px 10px;
         padding: 15px;
@@ -1005,16 +1039,16 @@ body {
     .contenido-bienvenida {
         padding: 20px;
     }
-    
+
     .logo-titulo {
         margin-bottom: 20px;
     }
-    
+
     .icono-logo {
         font-size: 2.5rem;
         margin-bottom: 10px;
     }
-    
+
     .titulo-principal {
         font-size: 2rem;
         margin-bottom: 5px;
@@ -1026,51 +1060,51 @@ body {
     .contenedor-principal {
         padding: 10px;
     }
-    
+
     .contenido-bienvenida {
         padding: 15px;
         max-width: 600px;
     }
-    
+
     .logo-titulo {
         margin-bottom: 15px;
     }
-    
+
     .icono-logo {
         font-size: 2rem;
         margin-bottom: 8px;
     }
-    
+
     .titulo-principal {
         font-size: 1.8rem;
         margin-bottom: 3px;
     }
-    
+
     .subtitulo {
         font-size: 0.9rem;
     }
-    
+
     .contenedor-formulario {
         margin-bottom: 15px;
     }
-    
+
     .grupo-input {
         margin-bottom: 15px;
     }
-    
+
     .grupo-input input {
         padding: 10px 10px 10px 35px;
     }
-    
+
     .contenedor-cards {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     .card {
         padding: 20px 15px;
     }
-    
+
     .titulo-opciones {
         font-size: 1.8rem;
         margin-bottom: 25px;

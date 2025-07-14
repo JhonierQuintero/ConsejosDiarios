@@ -1,3 +1,23 @@
+// Funciones globales para navegación
+function irAPaginaAbundancia() {
+    // Mostrar animación de carga antes de navegar
+    mostrarAnimacionCarga();
+    setTimeout(() => {
+        // Ruta relativa desde maestre/index.html a pagina-ser--main/pagina-ser--main/index.html
+        window.location.href = '../pagina/index.html';
+    }, 1000);
+}
+function irAJuegoTangram() {
+    // Mostrar animación de carga antes de navegar
+    mostrarAnimacionCarga();
+    setTimeout(() => {
+        // Ruta relativa desde maestre/index.html a SER/SER/index2.html
+        window.location.href = '../SER/SER/index (1).html';
+    }, 1000);
+}
+
+
+
 // Clase principal para manejar la aplicación
 class PortalDinamico {
     constructor() {
