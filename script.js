@@ -563,7 +563,7 @@ function irAPagina() {
     // Mostrar animación de carga antes de navegar
     mostrarAnimacionCarga();
     setTimeout(() => {
-        window.location.href = 'pagina.html';
+        window.location.href = './PaginaPrincipal/index.html';
     }, 1000);
 }
 
@@ -571,7 +571,7 @@ function irAJuego() {
     // Mostrar animación de carga antes de navegar
     mostrarAnimacionCarga();
     setTimeout(() => {
-        window.location.href = 'juego.html';
+        window.location.href = './juego/ser/index(1).html';
     }, 1000);
 }
 
