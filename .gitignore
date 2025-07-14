@@ -1,0 +1,15 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Entorno de desarrollo
+.vscode/
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Carpeta del repositorio git si se vuelve a clonar sin historial
+.git/

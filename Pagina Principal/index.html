@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Preguntas Diarias de Abundancia</title>
+    <meta name="description" content="Consejos diarios y reflexiones para cultivar la abundancia en tu vida.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Fondo de estrellas y fugaces -->
+    <div class="stars-bg"></div>
+    <div class="shooting-stars-bg"></div>
+    <audio id="tin-sound" src="./assets/campana-tin.mp3"></audio>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">✨ Consejos de Abundancia ✨</h1>
+            <p class="subtitle">Consejos diarios para alcanzar la abundancia en tu vida.</p>
+            <div class="date-display" id="currentDate" aria-live="polite"></div>
+        </header>
+
+        <main>
+            <section class="question-card" aria-labelledby="dailyQuestionTitle">
+                <h2 id="dailyQuestionTitle" class="section-title visually-hidden">Pregunta del Día</h2>
+                <p class="question-text" id="dailyQuestion"></p>
+            </section>
+
+            <section class="response-section" aria-labelledby="reflectionTitle">
+                <h2 id="reflectionTitle" class="section-title">💭 Tu Reflexión Personal</h2>
+                <textarea
+                    class="textarea"
+                    id="userResponse"
+                    placeholder="Escribe aquí tus pensamientos y reflexiones sobre esta pregunta..."
+                    aria-label="Escribe tu reflexión personal"
+                ></textarea>
+                <button class="save-btn" onclick="saveResponse()">💾 Guardar Respuesta</button>
+                <div class="saved-message" id="savedMessage" role="status" aria-live="polite">¡Respuesta guardada exitosamente! ✨</div>
+            </section>
+
+            <section class="inspiration-card" aria-labelledby="inspirationTitle">
+                <h2 id="inspirationTitle" class="section-title">🌟 Inspiración del Día</h2>
+                <p class="inspiration-text" id="inspirationText"></p>
+            </section>
+
+            <nav class="navigation" aria-label="Navegación de preguntas">
+                <button class="nav-btn" onclick="previousQuestion()" aria-label="Pregunta Anterior">← Anterior</button>
+                <button class="nav-btn" onclick="nextQuestion()" aria-label="Siguiente Pregunta">Siguiente →</button>
+            </nav>
+
+            <section class="streak-section" aria-labelledby="streakTitle">
+                <h2 id="streakTitle" class="section-title">🔥 Tu Racha de Abundancia</h2>
+                <div class="streak-card">
+                    <div class="streak-display">
+                        <div class="streak-number" id="streakNumber" aria-live="polite">0</div>
+                        <div class="streak-text">días consecutivos</div>
+                    </div>
+                    <p class="streak-message" id="streakMessage" aria-live="polite">¡Comienza tu viaje hacia la abundancia!</p>
+
+                    <!-- Juego de Adivinanza para la Racha -->
+                    <div class="quiz-section" id="quizSection">
+                        <h3 class="quiz-title">¡Gana tu racha diaria!</h3>
+                        <p class="quiz-question" id="quizQuestion"></p>
+                        <div class="quiz-options" id="quizOptions">
+                            <!-- Opciones se cargarán con JS -->
+                        </div>
+                        <button class="quiz-submit-btn" onclick="checkQuizAnswer()">Comprobar</button>
+                    </div>
+
+                    <!-- Mensaje de Felicidades -->
+                    <div class="congratulations-message" id="congratulationsMessage">
+                        <p>¡Felicidades! 🎉 Has ganado tu racha diaria.</p>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quiz-details-section" aria-labelledby="quizDetailsTitle">
+                <h2 id="quizDetailsTitle" class="section-title">🧩 Pregunta y Respuestas del Quiz</h2>
+                <div class="quiz-details-card" id="quizDetailsCard">
+                    <!-- Se llenará con JS -->
+                </div>
+            </section>
+
+            <section class="responses-section" aria-labelledby="previousResponsesTitle">
+                <h2 id="previousResponsesTitle" class="section-title">📝 Tus Respuestas Anteriores</h2>
+                <div class="responses-container" id="responsesContainer">
+                    <p class="no-responses">Aún no has guardado respuestas. ¡Empieza hoy tu viaje de transformación!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./scripts.js"></script>
+    <script src="./stars.js"></script>
+</body>
+</html>
